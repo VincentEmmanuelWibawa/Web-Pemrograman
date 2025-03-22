@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        list-style: none;
+    }
+
+    .Home{
+        border-color: grey;
+        border-style: dotted;
+        text-align: center;
+        margin: 0px 3px;
+        padding: 2px 30px;
+        float: left;
+        border-width: 2px;
+    }
+
+    .Home:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .News{
+        border-color: grey;
+        border-style: dotted;
+        text-align: center;
+        margin: 0px 3px;
+        padding: 2px 32px;
+        float: left;
+        border-width: 2px;
+    }
+
+    .Contact{
+        border-color: grey;
+        border-style: dotted;
+        text-align: center;
+        margin: 0px 3px;
+        padding: 2px 30px;
+        float: left;
+        border-width: 2px;
+    }
+
+    .Contact:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .About{
+        border-color: grey;
+        border-style: dotted;
+        text-align: center;
+        margin: 0px 3px;
+        padding: 2px 30px;
+        float: left;
+        border-width: 2px;
+    }
+
+    .About:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .tipenews{
+        position: absolute;
+        left: 120px;
+        padding-top: 30px;
+        display: none;
+        
+    }
+
+    .News:hover .tipenews{
+        display: block;
+        
+    }
+
+    .jenis{
+        border-color: grey;
+        border-style: dotted;
+        text-align: center;
+        padding: 3px 30px;
+        color: black;
+
+    }
+
+    .jenis:hover{
+        background-color: black;
+        color: white;
+    }
+
+
+
+</style>
+<body>
+    <ul>
+        <li class="Home"><a href=""></a>Home
+        <li class="News"><a href=""></a>News
+        <ul class="tipenews">
+            <li class="jenis">Sports</li>
+            <li class="jenis">Music</li>
+            <li class="jenis">Movie</li>
+
+        </ul>
+        <li class="Contact"><a href=""></a>Contact
+        <li class="About"><a href=""></a>About
+    </ul>
+</body>
+</html>
