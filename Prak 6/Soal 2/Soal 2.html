@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373023_Vincent Emmanuel</title>
+    <link rel="stylesheet" href="Style 2.css">
+</head>
+<body>
+    <script>
+        let angka;
+        do {
+            angka = prompt("Masukkan sebuah angka:");
+            if (angka === null) {
+                alert("Anda membatalkan input.");
+                break;
+            }
+            angka = parseInt(angka);
+        } while (isNaN(angka));
+
+        if (!isNaN(angka)) {
+            document.write("<h2>Tabel Perkalian " + angka + "</h2>");
+            document.write("<table>");
+            for (let i = 1; i <= angka; i++) {
+                document.write("<tr>");
+                document.write("<td>" + i + " x " + angka + "</td>");
+                document.write("<td>=</td>");
+                document.write("<td>" + (i * angka) + "</td>");
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

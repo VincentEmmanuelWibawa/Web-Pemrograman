@@ -1,0 +1,47 @@
+table {
+    border-collapse: collapse;
+    width: 200px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+input {
+    margin-bottom: 5px;
+    width: 100px;
+    box-sizing: 100px;
+    margin-top: -20px;
+}
+
+label{
+    width: 120px;
+    margin-right: 5px;
+}
+
+.container1{
+    width: 300px;
+}
+
+.container2{
+    width: 300px;
+
+}
+
+.titikkoma{
+    margin-top: -18.5px;
+    margin-left: 110px;
+}
+
+.box1{
+    margin-top: -35px;
+    margin-left: 120px;
+}
+
+.box2{
+    margin-top: -18px;
+    margin-left: 120px;
+}

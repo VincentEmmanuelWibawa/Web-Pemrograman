@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23723023_Vincent Emmanuel</title>
+    <link rel="stylesheet" href="Style 3.css">
+</head>
+<body>
+    <div class="container">
+        <label for="tinggi">Tinggi Piramida: </label>
+        <input type="angka" id="tinggi" min="1" max="15"><br>
+        <button class="proses"onclick="generatePyramid()">Proses</button>
+        <div id="hasil"></div>
+    </div>
+    
+    <script>
+        function generatePyramid() {
+            let tinggi = document.getElementById('tinggi').value;
+            let hasil= document.getElementById('hasil');
+            hasil.innerHTML = '';
+
+            let table = document.createElement('table');
+            for (let i = 0; i < tinggi; i++) {
+                let row = document.createElement('tr');
+                let spaces = tinggi - i - 1;
+                let blocks = 2 * i + 1;
+                
+                for (let j = 0; j < spaces; j++) {
+                    let emptyCell = document.createElement('td');
+                    emptyCell.style.backgroundColor = 'white';
+                    row.appendChild(emptyCell);
+                }
+                for (let j = 0; j < blocks; j++) {
+                    let cell = document.createElement('td');
+                    row.appendChild(cell);
+                }
+                for (let j = 0; j < spaces; j++) {
+                    let emptyCell = document.createElement('td');
+                    emptyCell.style.backgroundColor = 'white';
+                    row.appendChild(emptyCell);
+                }
+                
+                table.appendChild(row);
+            }
+            hasil.appendChild(table);
+        }
+    </script>
+</body>
+</html>
