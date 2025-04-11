@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Transaksi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .kontainer {
+        width: 90%;
+        margin-top: 30px;
+        margin-left: 40px;
+        background: orange;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+    
+    button{
+        position: fixed;
+        top: 500px;
+        margin-left: 50px;
+    }
+    
+    </style>
+<body>
+    
+    <script>
+        function loadRiwayatTransaksi() {
+            let riwayatTransaksi = JSON.parse(localStorage.getItem('riwayatTransaksi')) || [];
+            let transaksiTable = document.querySelector("tbody");
+            transaksiTable.innerHTML = ""; 
+    
+            riwayatTransaksi.forEach((transaksi, index) => {
+                transaksiTable.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${transaksi.tanggal}</td>
+                        <td>${transaksi.deskripsi}</td>
+                        <td>Rp ${transaksi.totalHarga}</td>
+                    </tr>
+                `;
+            });
+        }
+        
+        function hapusSemuaTransaksi() {
+        if (confirm("Apakah Anda yakin ingin menghapus semua riwayat transaksi?")) {
+            localStorage.removeItem('riwayatTransaksi'); 
+            loadRiwayatTransaksi(); 
+        }
+        }
+        document.addEventListener("DOMContentLoaded", loadRiwayatTransaksi);
+    </script>
+    
+    <button onclick="hapusSemuaTransaksi()">Hapus Semua Riwayat</button>
+
+    <div class="container">
+        <img src="../Img/images.png" class="logo" alt="Logo">
+        <div class="judul"><a href="main.html">Home</a></div>
+        <div><a href="about.html">About</a></div>
+        <div><a href="transaksi.html">Transaksi</a></div>
+        <div><a href="menu.html">Menu</a></div>
+        <div><a href="tournament.html">Tournament</a></div>
+        <div><a href="reservasi.html">Reservasi</a></div>
+        <div><a href="keranjang.html"><img src="../Img/Keranjang-removebg-preview.png" alt="" width="50px"></a></div>
+        <div><a href="login.html"><img src="../Img/profile.png" class="profil" alt="Profil"></a></div>
+    </div>
+
+
+    <div class="kontainer">
+        <h2>Riwayat Transaksi</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Deskripsi</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2025-03-29</td>
+                    <td>Nasi Goreng(1), Es Teh Manis (2), 2 jam</td>
+                    <td>Rp 250.000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2025-03-28</td>
+                    <td> 3 jam</td>
+                    <td>Rp 80.000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2025-03-27</td>
+                    <td>Lemon Tea(1),  1jam</td>
+                    <td>Rp 100.000</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        Copyright &copy; 2025 by Victory Billiard, Inc &nbsp;
+        <a href="https://www.instagram.com/unikamper_po/"><img src="../Img/instagram.png" alt="Instagram"></a>
+        <a href=""><img src="../Img/tiktok-Photoroom.png" alt="Tiktok"></a>
+        <a href=""><img src="../Img/twitter.png" alt="Twitter"></a>
+    </div>
+</html>

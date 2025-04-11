@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-main {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .keranjang {
+            width: 60%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .keranjang h2 {
+            text-align: center;
+        }
+        .keranjang-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .keranjang-item button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../Img/images.png" class="logo" alt="Logo">
+        <div class="judul"><a href="main.html">Home</a></div>
+        <div><a href="about.html">About</a></div>
+        <div><a href="transaksi.html">Transaksi</a></div>
+        <div><a href="menu.html">Menu</a></div>
+        <div><a href="tournament.html">Tournament</a></div>
+        <div><a href="reservasi.html">Reservasi</a></div>
+        <div><a href="keranjang.html"><img src="../Img/Keranjang-removebg-preview.png" alt="" width="50px"></a></div>
+        <div><a href="login.html"><img src="../Img/profile.png" class="profil" alt="Profil"></a></div>
+
+        <div class="footer">
+            Copyright &copy; 2025 by Victory Billiard, Inc &nbsp;
+            <a href="https://www.instagram.com/unikamper_po/"><img src="../Img/instagram.png" alt="Instagram"></a>
+            <a href=""><img src="../Img/tiktok-Photoroom.png" alt="Tiktok"></a>
+            <a href=""><img src="../Img/twitter.png" alt="Twitter"></a>
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="keranjang">
+            <h2>Keranjang Belanja</h2>
+            <div id="keranjang-list"></div>
+            <p>Total: <span id="total-harga">Rp 0</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+        let reservasi = JSON.parse(localStorage.getItem('reservasi')); 
+    
+        function updateKeranjang() {
+            const keranjangList = document.getElementById("keranjang-list");
+            const totalHarga = document.getElementById("total-harga");
+            keranjangList.innerHTML = "";
+            let total = 0;
+    
+            keranjang.forEach((item, index) => {
+                total += item.harga * item.jumlah;
+                keranjangList.innerHTML += `
+                    <div class="keranjang-item">
+                        <span>${item.nama} (${item.jumlah})</span>
+                        <span>Rp ${item.harga * item.jumlah}</span>
+                        <button onclick="hapusItem(${index})">Hapus</button>
+                    </div>
+                `;
+            });
+    
+            if (reservasi) {
+                keranjangList.innerHTML += `
+                    <div class="keranjang-item">
+                        <span>Reservasi: ${reservasi.nama} (${reservasi.durasi} Jam)</span>
+                        <button onclick="hapusReservasi()">Hapus</button>
+                    </div>
+                `;
+            }
+    
+            totalHarga.textContent = `Rp ${total}`;
+        }
+    
+        function hapusItem(index) {
+            keranjang.splice(index, 1);
+            localStorage.setItem('keranjang', JSON.stringify(keranjang));
+            updateKeranjang();
+        }
+    
+        function hapusReservasi() {
+            localStorage.removeItem('reservasi');
+            reservasi = null;
+            updateKeranjang();
+        }
+    
+        function checkout() {
+            alert("Pesanan Anda telah diproses!");
+            localStorage.removeItem('keranjang');
+            localStorage.removeItem('reservasi'); 
+            keranjang = [];
+            reservasi = null;
+            updateKeranjang();
+        }
+    
+        updateKeranjang();
+    </script>
+    
+    
+</body>
+</html>

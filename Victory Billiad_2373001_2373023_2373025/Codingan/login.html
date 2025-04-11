@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: orange;
+            padding: 20px;
+        }
+
+        .kontener {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: burlywood;
+            border-radius: 15px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .login {
+            flex: 1;
+            padding: 40px;
+            min-width: 300px;
+        }
+
+        form {
+            max-width: 300px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bolder;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border-top: 2px solid beige;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: orange;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        .link-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .link-container a {
+            text-decoration: underline;
+            color: blue;
+            font-weight: none;
+        }
+
+        .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: yellow;
+            min-width: 300px;
+        }
+
+        .right img {
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .kontener {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .right {
+                padding: 20px;
+            }
+
+            .right img {
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kontener">
+        <div class="login">
+            <form action="">
+                <h1>Login</h1>
+                <hr>
+                <p>Victory Billiard</p>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="masukkan Email.com" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="password" required>
+                <button type="submit"><a href="main.html">Login</a></button>
+                <div class="link-container">
+                    <a href="#">Forgot Password</a>
+                    <a href="main.html">Back</a>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <img src="../Img/images.png" alt="Victory Billiard Logo">
+        </div>
+    </div>
+
+</body>
+</html>

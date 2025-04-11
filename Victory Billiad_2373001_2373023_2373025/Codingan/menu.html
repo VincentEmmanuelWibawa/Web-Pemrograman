@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+        .container-main {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .isimenu {
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            width: 80%;
+            margin: 10px auto;
+            border: 1px solid #aaa;
+        }
+
+        .judulm {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-transform: capitalize;
+        }
+
+        .makanan, .minuman {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .makanan img, .minuman img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .makanan b, .minuman b {
+            display: block;
+            font-size: 1rem;
+            margin-top: 5px;
+            width: 120px;
+            height: 120px;
+            gap: 5px;
+        }
+
+        hr{
+            width: 115%;
+            margin: 20px auto;
+            margin-left: -100px;
+        }
+
+        .jumlah {
+            width: 70px;
+            position: relative;
+            top: -40px;
+            margin-bottom: 0px;
+            text-align: center;
+            
+        }
+
+        button {
+            margin-top: 0px;
+            padding: 5px 10px;
+            border: none;
+            margin-left: -73px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+       
+        .satu{
+            background-color: whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        
+            function tambahKeKeranjang(nama, harga, jumlah) {
+                if (jumlah <= 0) {
+                    alert("Jumlah harus lebih dari 0!");
+                    return;
+                }
+    
+                
+                let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+    
+               
+                let itemIndex = keranjang.findIndex(item => item.nama === nama);
+                if (itemIndex !== -1) {
+                    keranjang[itemIndex].jumlah += jumlah; 
+                } else {
+                    keranjang.push({ nama, harga, jumlah }); 
+                }
+    
+                localStorage.setItem("keranjang", JSON.stringify(keranjang));
+                alert(nama + " berhasil ditambahkan ke keranjang!");
+            }
+    
+            
+            document.querySelectorAll(".satu").forEach((item) => {
+                let tombol = item.querySelector("button");
+                tombol.addEventListener("click", function () {
+                    let nama = item.querySelector("b").innerText.split(" (Rp")[0]; 
+                    let harga = parseInt(item.querySelector("b").innerText.match(/\d+/g).join("")); 
+                    let jumlah = parseInt(item.querySelector(".jumlah").value); 
+    
+                    tambahKeKeranjang(nama, harga, jumlah);
+                });
+            });
+        });
+    </script>
+    
+
+    <div class="container">
+        <img src="../Img/images.png" class="logo" alt="Logo">
+        <div class="judul"><a href="main.html">Home</a></div>
+        <div><a href="about.html">About</a></div>
+        <div><a href="transaksi.html">Transaksi</a></div>
+        <div><a href="menu.html">Menu</a></div>
+        <div><a href="tournament.html">Tournament</a></div>
+        <div><a href="reservasi.html">Reservasi</a></div>
+        <div><a href="keranjang.html"><img src="../Img/Keranjang-removebg-preview.png" alt="" width="50px"></a></div>
+        <div><a href="login.html"><img src="../Img/profile.png" class="profil" alt="Profil"></a></div>
+    </div>
+
+    <div class="container-main">
+        <div class="isimenu">Menu</div>
+        <hr>
+        <p class="judulm">Makanan</p>
+        <hr>
+
+        <div class="makanan">
+            <div class="satu">
+                <img src="../Img/nasigoreng.jpeg" alt="Nasi Goreng Kampung">
+                <b>Nasi Goreng Kampung (Rp 25.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/cordon.jpeg" alt="Chicken Cordon Blue">
+                <b>Chicken Cordon Blue (Rp 35.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/spageti.jpeg" alt="Spaghetti">
+                <b>Spaghetti (Rp 30.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/katsu.jpeg" alt="Chicken Katsu">
+                <b>Chicken Katsu (Rp 20.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/kentang.jpeg" alt="Kentang Sosis">
+                <b>Kentang Sosis (Rp 20.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/pisang.jpeg" alt="Pisang Coklat Keju">
+                <b>Pisang Coklat Keju (Rp 20.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/roti.jpeg" alt="Roti Bakar">
+                <b>Roti Bakar (Rp 15.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+        </div>
+
+        <hr>
+        <p class="judulm">Minuman</p>
+        <hr>
+
+        <div class="minuman">
+            <div class="satu">
+                <img src="../Img/americano.jpeg" alt="Americano">
+                <b>Americano (Rp 15.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/kopsus.jpeg" alt="Kopi Susu Victory">
+                <b>Kopi Susu Victory (Rp 25.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/teh.jpeg" alt="Ice/Hot Teh Manis">
+                <b>Ice/Hot Teh Manis (Rp 10.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/thai.jpeg" alt="Thai Tea Latte">
+                <b>Thai Tea Latte (Rp 20.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/greentea.jpeg" alt="Green Tea Latte">
+                <b>Green Tea Latte (Rp 20.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/leci.jpeg" alt="Ice/Hot Lychee Tea">
+                <b>Ice/Hot Lychee Tea (Rp 20.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            <div class="satu">
+                <img src="../Img/lemon.jpeg" alt="Ice/Hot Lemon Tea">
+                <b>Ice/Hot Lemon Tea (Rp 15.000)</b>
+                <input class="jumlah" type="number" min="0" value="0">
+                <button>Tambah</button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="footer">
+        Copyright &copy; 2025 by Victory Billiard, Inc &nbsp;
+        <a href="https://www.instagram.com/unikamper_po/"><img src="../Img/instagram.png" alt="Instagram"></a>
+        <a href=""><img src="../Img/tiktok-Photoroom.png" alt="Tiktok"></a>
+        <a href=""><img src="../Img/twitter.png" alt="Twitter"></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .mainreserv{
+        text-align: center;
+    }
+    .mainKonten{
+        background: white;
+        padding: 20px;
+        margin-left: 30%;
+        margin-top: 20px;
+        margin-bottom: 10%;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 400px;
+    }
+    h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    }
+    label{
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    input, textarea{
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+</style>
+<body>
+
+    
+    <div class="container">
+        <img src="../Img/images.png" class="logo" width="25px" height="25px">
+        <div class="judul"><a href="main.html">Home</a></div>
+        <div class="about"><span><a href = "about.html">About</a></span></div>
+        <div class="transaksi"><span><a href="transaksi.html">Transaksi</a></span></div>
+        <div class="menu"><span><a href="menu.html">Menu</a></span></div>
+        <div><a href="tournament.html">Tournament</a></div>
+        <div class="reservasi"><span><a href="reservasi.html">Reservasi</a></span></div>
+        <div><a href="keranjang.html"><img src="../Img/Keranjang-removebg-preview.png" alt="" width="50px"></a></div>
+        <div><a href="login.html"><img src="../Img/profile.png" class="profil" alt="Profil"></a></div>
+    </div>
+
+    <div class="mainKonten">
+        <h2>Formulir Reservasi</h2>
+        <form action="#" method="post">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telepon">Nomor Telepon:</label>
+            <input type="tel" id="telepon" name="telepon" required>
+
+            <label for="tanggal">Tanggal Reservasi:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+
+            <label for="jumlah">Jumlah Orang:</label>
+            <input type="number" id="jumlah" name="jumlah" min="1" max="6" required>
+
+            <label for="jam">Durasi Main:</label>
+            <input type="number" id="jam" name="jam" min="1" max="10" required>
+            
+            <label for="catatan">Catatan Tambahan:</label>
+            <textarea id="catatan" name="catatan" rows="4"></textarea>
+
+            <button type="submit">Kirim Reservasi</button>
+        </form>
+    </div>
+    
+    <div class="footer">
+        Copyright &copy; 2025 by Victory Billiard, Inc &nbsp;
+        <a href="https://www.instagram.com/unikamper_po/"><img src="../Img/instagram.png" alt="Instagram"></a>
+        <a href=""><img src="../Img/tiktok-Photoroom.png" alt="Tiktok"></a>
+        <a href=""><img src="../Img/twitter.png" alt="Twitter"></a>
+    </div>
+</body>
+</html>
