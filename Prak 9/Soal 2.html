@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373023_Vincent_Emmanuel</title>
+</head>
+<body>
+<style>
+    table {
+        border-collapse: collapse;
+         width: 50%;
+    }
+
+    th {
+        background-color: #B5CDA3;
+        padding: 8px;
+    }
+
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    .baris1 {
+        background-color: #FECBA1;
+    }
+    .baris2 {
+        background-color: #B6D0E2;
+    }
+    .hovered {
+        background-color: #CCFFAA !important;
+    }
+</style>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Programming Language</th>
+                <th>Ratings</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="baris2" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+                <td>1</td><td>C</td><td>18.058%</td>
+            </tr>
+            <tr class="baris1" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+                <td>2</td><td>Java</td><td>18.051%</td>
+            </tr>
+            <tr class="baris2" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+                <td>3</td><td>C++</td><td>9.707%</td>
+            </tr>
+            <tr class="baris1" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+                <td>4</td><td>PHP</td><td>9.662%</td>
+            </tr>
+            <tr class="baris2" onmouseover="hoverRow(this)" onmouseout="unhoverRow(this)">
+                <td>5</td><td>(Visual) Basic</td><td>6.392%</td>
+            </tr>
+        </tbody>
+    </table>
+
+<script>
+    function hoverRow(row) {
+        row.classList.add("hovered");
+    }
+
+    function unhoverRow(row) {
+        row.classList.remove("hovered");
+    }
+</script>
+</body>
+</html>
+

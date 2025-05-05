@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373023_Vincent_Emmanuel</title>
+</head>
+<body>
+<style>
+    input, select, button {
+        margin: 5px;
+    }
+
+</style>
+
+    <label>Data</label>
+        <input type="text" id="dataInput"><br>
+            <button onclick="addData()">Add</button>
+                <select id="operation" onchange="performOperation()">
+                    <option value="">Pilih Operasi</option>
+                    <option value="display">Display</option>
+                    <option value="count">Count</option>
+                    <option value="sum">Sum</option>
+                    <option value="average">Average</option>
+                    <option value="max">Max</option>
+                    <option value="min">Min</option>
+                    <option value="ganjil">Ganjil</option>
+                    <option value="genap">Genap</option>
+                    <option value="hapus">Hapus</option>
+                </select><br>
+
+    <label>Hasil</label>
+        <input type="text" id="result" readonly>
+
+<script>
+    let dataArray = [];
+
+    function addData() {
+        let input = document.getElementById("dataInput").value;
+        let number = parseInt(input);
+
+        if (!isNaN(number)) {
+            dataArray.push(number);
+            document.getElementById("dataInput").value = "";
+        } else {
+            alert("Masukkan angka yang valid!");
+        }
+    }
+
+    function performOperation() {
+        let op = document.getElementById("operation").value;
+        let resultField = document.getElementById("result");
+        let result = "";
+
+        if (op === "display") {
+            result = dataArray.join(", ");
+        } else if (op === "count") {
+            result = dataArray.length;
+        } else if (op === "sum") {
+            result = dataArray.reduce((a, b) => a + b, 0);
+        } else if (op === "average") {
+            result = dataArray.length > 0 ? (dataArray.reduce((a, b) => a + b, 0) / dataArray.length).toFixed(2) : 0;
+        } else if (op === "max") {
+            result = Math.max(...dataArray);
+        } else if (op === "min") {
+            result = Math.min(...dataArray);
+        } else if (op === "ganjil") {
+            result = dataArray.filter(n => n % 2 !== 0).join(", ");
+        } else if (op === "genap") {
+            result = dataArray.filter(n => n % 2 === 0).join(", ");
+        } else if (op === "hapus") {
+            dataArray = [];
+            result = "";
+        }
+
+        resultField.value = result;
+    }
+</script>
+</body>
+</html>

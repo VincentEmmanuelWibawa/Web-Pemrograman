@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373023_Vincent_Emmanuel</title>
+</head>
+<body>
+<style>
+    textarea {
+        width: 250px;
+        height: 100px;
+    }
+
+    .counter {
+        text-align: right;
+        width: 250px;
+    }
+
+    .satu{
+        margin-left: 80px;
+        position: absolute;
+        top: 10px;
+    }
+
+    .dua{
+        margin-left: 80px;
+        margin-top: -15px;
+    }
+        
+    .tiga{
+        margin-left: 160px;
+    }
+</style>
+
+    <form>
+        <div>Judul :</div>
+        <input class="satu" type="text" name="judul"><br>
+
+        <div>Deskripsi :</div>
+        <textarea class="dua" onkeyup="call_onKeyPress(this)"></textarea>
+        <div class="counter">
+            <input class="tiga" type="text" id="txt2" value="0/256" readonly style="border:none; text-align: right;">
+        </div>
+    </form>
+
+<script>
+    function call_onKeyPress(ob){
+        var obval = ob.value;
+        var length = obval.length;
+         document.getElementById("txt2").value = length + "/256";
+    }
+</script>
+</body>
+</html>
