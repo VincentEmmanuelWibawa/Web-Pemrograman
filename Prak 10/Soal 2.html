@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373023_Vincent Emmanuel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #daftarnama div {
+            margin-bottom: 5px;
+        }
+
+        .highlight {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="nameInput" placeholder="Enter Name">
+    <button id="tambah">Add</button>
+    <button id="cari">Search</button>
+
+    <div id="daftarnama">
+        <div>John Resig</div>
+        <div>George Martin</div>
+        <div>Malcom John Sinclair</div>
+        <div>J. Ohn</div>
+    </div>
+
+    <script>
+        $('#tambah').on('click', function() {
+            const name = $('#nameInput').val().trim();
+            if (name !== "") {
+                $('<div>' + name + '</div>').appendTo('#daftarnama');
+                $('#nameInput').val('');
+            }
+        });
+
+        $('#cari').on('click', function() {
+            const searchText = $('#nameInput').val().trim();
+            $('#daftarnama div').removeClass('highlight');
+
+            if (searchText !== "") {
+                $('#daftarnama div:contains(' + searchText + ')').each(function() {
+                    $(this).addClass('highlight');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

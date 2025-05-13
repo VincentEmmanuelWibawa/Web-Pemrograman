@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2373023_Vincent Emmanuel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #merk {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchField">
+    <div id="merk">
+        <p>Sun Microsystem</p>
+        <p>Apache Software Foundation</p>
+        <p>Oracle Coorporation</p>
+        <p>International Bussiness Machines</p>
+        <p>Microsoft Coorporation</p>
+        <p>Apple Inc</p>
+        <p>Sap Ag</p>
+        <p>Accenture</p>
+        <p>Computer Sciences Coorporation</p>
+        <p>Google</p>
+        <p>Softbank</p>
+        <p>Yahoo</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#searchField').on('keyup', function() {
+                var searchText = $(this).val().toLowerCase();
+                $('#merk p').each(function() {
+                    var companyName = $(this).text().toLowerCase();
+                    if (companyName.includes(searchText) && searchText !== '') {
+                        $(this).addClass('highlight');
+                    } else {
+                        $(this).removeClass('highlight');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
