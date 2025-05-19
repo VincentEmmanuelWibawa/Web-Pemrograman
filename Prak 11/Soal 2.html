@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2373023_Vincent Emmanuel</title>
+</head>
+<script type="text/javascript" src="jquery.js"></script>
+
+<style>
+
+     .link{
+        text-decoration: underline;
+        color: blue;
+        font-weight: 600;
+    }
+
+    .judul{
+        text-align: center;
+        height: 50px;
+        font-weight: bolder;
+        text-decoration: underline;
+        color: blue;
+        font-size: 20px;
+    }
+
+     table{
+        width: 300px;
+    }
+    
+    .date{
+        font-style: italic;
+    }
+
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <td id="judul">Title</td>
+        </tr>
+        <tr>
+            <td id="konten">Content</td>
+        </tr>
+        <tr>
+            <td id="generator">Generator</td>
+        </tr>
+    </table>
+    <br>
+    <button id="satu">Look</button>
+
+<script>
+    $(document).ready(function(){
+        var klik = false;
+        $("#satu").click(function(){
+            if (klik==false){
+                $("table").css("width","670px");
+            $.getJSON("SIJson.json", function(data){
+                $("#judul").html("<div>"+"<a href ="+data.link+">"+data.title+"</a>"+
+                    "</div>").addClass("title");
+
+                $("#generator").html("<div> &copy;"+data.generator+"</div>");
+
+                $("#konten").html("<div class= 'link'> <a href ="+data.items[0].link+">"+
+                    data.items[0].title+"</a> </div>");
+
+                $("#konten").append("<div> By : "+data.items[0].author+" / "+
+                    "<span class= 'date'>"+data.items[0].published+"</span></div> <br>");
+
+                $("#konten").append(data.items[0].description+"<br><br>");
+
+                $("#konten").append("<div>Universitas : <a href= "+data.items[0].universitas.m+
+                " class ='link'> Click Here </a></div>");
+
+                $("#konten").append("Tag(s) : "+data.items[0].tags+"<br><br>");
+
+                $("#konten").append("<div class = 'link'> <a href ="+data.items[1].link+">"+ 
+                    data.items[1].title+"</a> </div>");
+
+                $("#konten").append("<div> By : "+data.items[1].author+" / "+
+                    "<span class= 'date'>"+data.items[1].published+"</span></div> <br>");
+                
+                $("#konten").append(data.items[1].description+"<br><br>");
+
+                $("#konten").append("<div>Universitas : <a href= "+data.items[1].universitas.m+
+                    " class ='link'> Click Here </a></div>");
+
+                $("#konten").append("Tag(s) : "+data.items[1].tags+"<br><br>");
+
+                klik= true
+                $("#satu").html("Hide").removeClass();
+        })
+            } else if(klik==true){
+                $("table").css("width","300px");
+                $("#judul").html("Title").removeClass();
+                $("#generator").html("Generator").removeClass();
+                $("#konten").html("Content").removeClass();
+                $("#satu").html("Look").removeClass();
+                klik=false;
+            }
+        })
+    })
+</script>
+</body>
+</html>

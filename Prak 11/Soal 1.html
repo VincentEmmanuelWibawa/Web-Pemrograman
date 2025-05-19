@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Daftar Mahasiswa Pemrograman Web</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        label {
+            width: 79%;
+            display: block;
+            margin-bottom: 5px;
+            border: 1px solid black;
+            padding: 5px;
+    
+        }
+        
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FFFFCC;
+        }
+
+        tr:nth-child(even) {
+            background-color: #CCFFAA;
+        }
+    </style>
+</head>
+<body>
+    <h2>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A Pemrograman Web SI Tahun Ajaran 2023/2024</h2>
+    <form>
+            <label><input type='radio' name='kelas' value='all' checked> All<br>
+            <input type='radio' name='kelas' value='kelasA'> Kelas A<br>
+            <input type='radio' name='kelas' value='kelasB'> Kelas B<br>
+            <button type='button' onclick='loadData()'>Search</button></label>
+    </form>
+    <br>
+    <table id='mahasiswa-table'>
+        <thead>
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function loadData() {
+            let kelas = $(":radio[name='kelas']:checked").val();
+            let url = '';
+
+            if (kelas === 'kelasA') {
+                url = './nilaiA.json';
+            } else if (kelas === 'kelasB') {
+                url = './nilaiB.json';
+            } else {
+                url = './nilai.json';
+            }
+
+            $.getJSON(url, function(data) {
+                let rows = '';
+
+                data.nilai.forEach(function(mahasiswa) {
+                    rows += `<tr>
+                        <td>${mahasiswa.nrp}</td>
+                        <td>${mahasiswa.nama}</td>
+                        <td>${mahasiswa.kelas}</td>
+                        <td>${mahasiswa.nilaiakhir}</td>
+                    </tr>`;
+                });
+
+                $('#mahasiswa-table tbody').html(rows);
+            });
+        }
+    </script> 
+</body>
+</html>
